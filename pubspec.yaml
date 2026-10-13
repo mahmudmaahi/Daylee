@@ -74,11 +74,16 @@ flutter_launcher_icons:
   adaptive_icon_foreground: assets/images/logo.png
 
 flutter_native_splash:
-  color: '#F5F6FA'
+  # Same colour as the in-app splash so the hand-over is seamless.
+  color: '#0E0A1F'
   image: assets/images/logo.png
-  color_dark: '#0F0F1A'
+  color_dark: '#0E0A1F'
   image_dark: assets/images/logo.png
   android: true
   ios: true
   web: false
   fullscreen: true
+  android_12:
+    color: '#0E0A1F'
+    image: assets/images/logo.png
+    icon_background_color: '#0E0A1F'

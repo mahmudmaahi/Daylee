@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../core/constants/app_strings.dart';
 
+/// The DayLee mark.
 class AppLogo extends StatelessWidget {
   const AppLogo({
     super.key,
@@ -18,19 +20,7 @@ class AppLogo extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(size * 0.26),
-          child: Image.asset(
-            'assets/images/logo.png',
-            width: size,
-            height: size,
-            fit: BoxFit.cover,
-            matchTextDirection: false,
-            colorBlendMode: BlendMode.srcOver,
-            filterQuality: FilterQuality.high,
-            isAntiAlias: true,
-          ),
-        ),
+        AppIconImage(size: size),
         if (showName) ...[
           const SizedBox(width: 8),
           Text(
@@ -39,6 +29,28 @@ class AppLogo extends StatelessWidget {
           ),
         ],
       ],
+    );
+  }
+}
+
+/// Rounded square with the DayLee logo.
+class AppIconImage extends StatelessWidget {
+  const AppIconImage({super.key, required this.size, this.radiusFactor = 0.26});
+
+  final double size;
+  final double radiusFactor;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(size * radiusFactor),
+      child: Image.asset(
+        'assets/images/logo.png',
+        width: size,
+        height: size,
+        fit: BoxFit.cover,
+        filterQuality: FilterQuality.high,
+      ),
     );
   }
 }

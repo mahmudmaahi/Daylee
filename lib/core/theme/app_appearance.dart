@@ -88,12 +88,32 @@ class AppAppearance {
     final tokens = isDark ? AppThemeTokens.dark : AppThemeTokens.light;
     final brightness = isDark ? Brightness.dark : Brightness.light;
 
-    final seededScheme = ColorScheme.fromSeed(
-      seedColor: accent,
-      brightness: brightness,
-      surface: base.colorScheme.surface,
-      onSurface: base.colorScheme.onSurface,
-    );
+    // Material's tonal palette washes the accent out (a vivid purple becomes
+    // a dusty one), so use the accent itself as the primary colour and keep
+    // the generated palette only for the secondary roles.
+    final vivid = isDark
+        ? Color.lerp(accent, Colors.white, 0.18)!
+        : accent;
+    final onVivid = ThemeData.estimateBrightnessForColor(vivid) == Brightness.dark
+        ? Colors.white
+        : const Color(0xFF1A1A2E);
+    final seededScheme =
+        ColorScheme.fromSeed(
+          seedColor: accent,
+          brightness: brightness,
+          surface: base.colorScheme.surface,
+          onSurface: base.colorScheme.onSurface,
+        ).copyWith(
+          primary: vivid,
+          onPrimary: onVivid,
+          primaryContainer: Color.lerp(
+            vivid,
+            isDark ? AppColors.darkSurface : Colors.white,
+            0.78,
+          ),
+          onPrimaryContainer: isDark ? Colors.white : vivid,
+          surfaceTint: Colors.transparent,
+        );
 
     final textTheme = _scaleTextTheme(base.textTheme, fontScale);
     final visualDensity = density == UiDensityPreference.compact

@@ -11,11 +11,13 @@ import '../../features/prayer_reminder/screens/prayer_screen.dart';
 import '../../features/profile/bindings/profile_binding.dart';
 import '../../features/profile/screens/profile_screen.dart';
 import '../../features/security/screens/app_lock_screen.dart';
+import '../../features/splash/splash_screen.dart';
 import '../../features/security/screens/security_settings_screen.dart';
 
 /// Named route constants
 class AppRoutes {
   AppRoutes._();
+  static const String splash = '/splash';
   static const String dashboard = '/';
   static const String lock = '/lock';
   static const String tasks = '/tasks';
@@ -32,6 +34,12 @@ class AppRoutes {
 
 /// GetX page route definitions with lazy-loaded bindings.
 final List<GetPage> appPages = [
+  GetPage(
+    name: AppRoutes.splash,
+    page: () => const SplashScreen(),
+    transition: Transition.fadeIn,
+    transitionDuration: const Duration(milliseconds: 250),
+  ),
   GetPage(
     name: AppRoutes.lock,
     page: () => const ExitConfirmationWrapper(child: AppLockScreen()),

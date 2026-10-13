@@ -407,7 +407,7 @@ IconData _weatherIcon(WeatherSnapshot w) {
     case 80:
     case 81:
     case 82:
-      return Icons.umbrella_rounded;
+      return Icons.water_drop_rounded;
     case 71:
     case 73:
     case 75:
@@ -590,7 +590,7 @@ class _WeatherCard extends StatelessWidget {
                   value: '${w.feelsLike.round()}°',
                 ),
                 _WeatherFact(
-                  icon: Icons.water_drop_rounded,
+                  icon: Icons.opacity_rounded,
                   label: 'Humidity',
                   value: '${w.humidity}%',
                 ),

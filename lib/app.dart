@@ -85,7 +85,11 @@ class _DayleeAppState extends State<DayleeApp> with WidgetsBindingObserver {
 
   void _rememberLastRoute() {
     final route = Get.currentRoute;
-    if (route.isEmpty || route == AppRoutes.lock) return;
+    if (route.isEmpty ||
+        route == AppRoutes.lock ||
+        route == AppRoutes.splash) {
+      return;
+    }
     StorageService.setString(AppLockPolicy.lastRouteKey, route);
   }
 
@@ -148,13 +152,16 @@ class _DayleeAppState extends State<DayleeApp> with WidgetsBindingObserver {
           themeMode: AppAppearance.toThemeMode(themePreference),
 
           // ── Routing ───────────────────────────────────────────
-          initialRoute: StorageService.getBool(AppLockPolicy.enabledKey)
-              ? AppRoutes.lock
-              : AppRoutes.dashboard,
+          // Cold start: splash first, then the lock screen or Home.
+          initialRoute: AppRoutes.splash,
           getPages: appPages,
           routingCallback: (routing) {
             final current = routing?.current ?? Get.currentRoute;
-            if (current.isEmpty || current == AppRoutes.lock) return;
+            if (current.isEmpty ||
+              current == AppRoutes.lock ||
+              current == AppRoutes.splash) {
+            return;
+          }
             StorageService.setString(AppLockPolicy.lastRouteKey, current);
           },
 

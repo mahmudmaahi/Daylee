@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.md text eol=lf
+*.png binary
+*.jpg binary
+*.jks binary
+*.apk binary

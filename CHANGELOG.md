@@ -20,6 +20,7 @@ First release.
 - Settings: theme, accent colour, font size, density, currency, cycle start day, categories, app lock,
   CSV export, backup & restore, reset.
 - In-app version information (Settings → About).
+- Animated **splash screen** on a fresh start (not shown when the app is resumed from memory).
 
 ### Fixed
 - Replaced the previous finance engine with a ledger-based one: online expenses are no longer deducted twice,
