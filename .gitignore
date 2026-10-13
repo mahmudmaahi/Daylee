@@ -1,0 +1,80 @@
+# ── OS ─────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDEs / editors ─────────────────────────────────
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+.history
+
+# ── Flutter / Dart ─────────────────────────────────
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+/coverage/
+**/doc/api/
+.metadata.bak
+migrate_working_dir/
+app.*.symbols
+app.*.map.json
+*.log
+*.class
+*.pyc
+
+# ── Android ────────────────────────────────────────
+**/android/.gradle/
+**/android/captures/
+**/android/gradlew.bat.bak
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.*
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
+
+# Signing material — NEVER commit these
+**/android/key.properties
+**/android/app/key.properties
+*.jks
+*.keystore
+
+# ── iOS / macOS ────────────────────────────────────
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/Pods/
+*.xcworkspace/xcuserdata/
+
+# ── Build outputs ──────────────────────────────────
+# Release APKs are attached to GitHub Releases, not committed.
+/dist/
+*.apk
+*.aab
+
+# ── Local scratch ──────────────────────────────────
+.env
+.env.*
+*.tmp
+temp.txt
